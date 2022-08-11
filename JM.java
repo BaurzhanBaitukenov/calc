@@ -1,8 +1,15 @@
 package com.company;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class JM {
     public static void main(String[] args) {
-        System.out.println(calc("X/II"));
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
+            String key = reader.readLine();
+            System.out.println(calc(key));
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     public static String calc(String value){
