@@ -27,7 +27,8 @@ public class JM {
                     }
                 }
 
-                String[] minus = value.split("-");
+                String minusT = value.replaceAll("[\\s|\\u00A0]+", "");
+                String[] minus = minusT.split("-");
 //                try {
 //                    if (Integer.parseInt(minus[0]) < 0 || Integer.parseInt(minus[0]) > 10 || Integer.parseInt(minus[1]) < 0 || Integer.parseInt(minus[1]) > 10){
 //                        throw new Exception();
@@ -86,7 +87,8 @@ public class JM {
                     }
                 }
 
-                String[] plus = value.split("\\+");
+                String plusT = value.replaceAll("[\\s|\\u00A0]+", "");
+                String[] plus = plusT.split("\\+");
 //                try {
 //                    if (Integer.parseInt(plus[0]) < 0 || Integer.parseInt(plus[0]) > 10 || Integer.parseInt(plus[1]) < 0 || Integer.parseInt(plus[1]) > 10){
 //                        throw new Exception();
@@ -139,7 +141,8 @@ public class JM {
                     }
                 }
 
-                String[] plus = value.split("/");
+                String divT = value.replaceAll("[\\s|\\u00A0]+", "");
+                String[] plus = divT.split("/");
 //                try {
 //                    if (Integer.parseInt(plus[0]) < 0 || Integer.parseInt(plus[0]) > 10 || Integer.parseInt(plus[1]) < 0 || Integer.parseInt(plus[1]) > 10){
 //                        throw new Exception();
@@ -191,8 +194,9 @@ public class JM {
                         }
                     }
                 }
-
-                String[] mult = value.split("\\*");
+                
+                String multT = value.replaceAll("[\\s|\\u00A0]+", "");
+                String[] mult = multT.split("\\*");
 //                try {
 //                    if (Integer.parseInt(mult[0]) < 0 || Integer.parseInt(mult[0]) > 10 || Integer.parseInt(mult[1]) < 0 || Integer.parseInt(mult[1]) > 10){
 //                        throw new Exception();
