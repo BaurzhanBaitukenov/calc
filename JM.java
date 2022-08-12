@@ -259,7 +259,7 @@ public class JM {
     }
 
     public static String IntegerToRomanNumeral(int input) {
-        if (input <= 0 || input > 3999)
+        if (input < 1 || input > 3999)
             return "Invalid Roman Number Value";
         String s = "";
         while (input >= 1000) {
@@ -311,10 +311,6 @@ public class JM {
         }
         while (input >= 1) {
             s += "I";
-            input -= 1;
-        }
-        while (input >= 0) {
-            s += "O";
             input -= 1;
         }
         return s;
