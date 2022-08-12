@@ -1,4 +1,5 @@
 package com.company;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -33,7 +34,6 @@ public class JM {
                         }
                     }
                 }
-
                 String minusT = value.replaceAll("[\\s|\\u00A0]+", "");
                 String[] minus = minusT.split("-");
 //                try {
@@ -64,7 +64,7 @@ public class JM {
                         } catch (Exception e) {
                             return String.valueOf(e);
                         }
-                        resCon = convert2(con);
+                        resCon = IntegerToRomanNumeral(con);
                         return resCon;
                     }
                     int minusRes = Integer.parseInt(minus[0]) - Integer.parseInt(minus[1]);
@@ -93,7 +93,6 @@ public class JM {
                         }
                     }
                 }
-
                 String plusT = value.replaceAll("[\\s|\\u00A0]+", "");
                 String[] plus = plusT.split("\\+");
 //                try {
@@ -117,7 +116,7 @@ public class JM {
                     con1 = convert(plus[0]);
                     con2 = convert(plus[1]);
                     con = con1+con2;
-                    resCon = convert2(con);
+                    resCon = IntegerToRomanNumeral(con);
                     return resCon;
                 }
 
@@ -147,7 +146,6 @@ public class JM {
                         }
                     }
                 }
-
                 String divT = value.replaceAll("[\\s|\\u00A0]+", "");
                 String[] plus = divT.split("/");
 //                try {
@@ -171,7 +169,7 @@ public class JM {
                     con1 = convert(plus[0]);
                     con2 = convert(plus[1]);
                     con = con1/con2;
-                    resCon = convert2(con);
+                    resCon = IntegerToRomanNumeral(con);
                     return resCon;
                 }
 
@@ -201,7 +199,6 @@ public class JM {
                         }
                     }
                 }
-                
                 String multT = value.replaceAll("[\\s|\\u00A0]+", "");
                 String[] mult = multT.split("\\*");
 //                try {
@@ -225,7 +222,7 @@ public class JM {
                     con1 = convert(mult[0]);
                     con2 = convert(mult[1]);
                     con = con1*con2;
-                    resCon = convert2(con);
+                    resCon = IntegerToRomanNumeral(con);
                     return resCon;
                 }
 
@@ -282,9 +279,61 @@ public class JM {
         return -1;
     }
 
-    public static String convert2(int num){
-        String[] roman = {"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
-        String s = roman[num];
+    public static String IntegerToRomanNumeral(int input) {
+        if (input < 1 || input > 3999)
+            return "Invalid Roman Number Value";
+        String s = "";
+        while (input >= 1000) {
+            s += "M";
+            input -= 1000;        }
+        while (input >= 900) {
+            s += "CM";
+            input -= 900;
+        }
+        while (input >= 500) {
+            s += "D";
+            input -= 500;
+        }
+        while (input >= 400) {
+            s += "CD";
+            input -= 400;
+        }
+        while (input >= 100) {
+            s += "C";
+            input -= 100;
+        }
+        while (input >= 90) {
+            s += "XC";
+            input -= 90;
+        }
+        while (input >= 50) {
+            s += "L";
+            input -= 50;
+        }
+        while (input >= 40) {
+            s += "XL";
+            input -= 40;
+        }
+        while (input >= 10) {
+            s += "X";
+            input -= 10;
+        }
+        while (input >= 9) {
+            s += "IX";
+            input -= 9;
+        }
+        while (input >= 5) {
+            s += "V";
+            input -= 5;
+        }
+        while (input >= 4) {
+            s += "IV";
+            input -= 4;
+        }
+        while (input >= 1) {
+            s += "I";
+            input -= 1;
+        }
         return s;
     }
 
