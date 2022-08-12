@@ -255,32 +255,11 @@ public class JM {
             } else if (roman.equals("X")) {
                 return 10;
             }
-            else if (roman.equals("XI")) {
-                return 11;
-            } else if (roman.equals("XII")) {
-                return 12;
-            } else if (roman.equals("XIII")) {
-                return 13;
-            } else if (roman.equals("XIV")) {
-                return 14;
-            } else if (roman.equals("XV")) {
-                return 15;
-            } else if (roman.equals("XVI")) {
-                return 16;
-            } else if (roman.equals("XVII")) {
-                return 17;
-            } else if (roman.equals("XVIII")) {
-                return 28;
-            } else if (roman.equals("XIX")) {
-                return 19;
-            } else if (roman.equals("XX")) {
-                return 20;
-            }
         return -1;
     }
 
     public static String IntegerToRomanNumeral(int input) {
-        if (input < 1 || input > 3999)
+        if (input <= 0 || input > 3999)
             return "Invalid Roman Number Value";
         String s = "";
         while (input >= 1000) {
@@ -332,6 +311,10 @@ public class JM {
         }
         while (input >= 1) {
             s += "I";
+            input -= 1;
+        }
+        while (input >= 0) {
+            s += "O";
             input -= 1;
         }
         return s;
