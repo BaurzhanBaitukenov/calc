@@ -281,8 +281,13 @@ public class JM {
     }
 
     public static String IntegerToRomanNumeral(int input) {
-        if (input < 1 || input > 3999)
-            return "Check your value number";
+        try {
+        if (input < 1 || input > 3999){
+            throw new Exception();
+        }
+    } catch(Exception e){
+            return String.valueOf(e);
+        }
         String s = "";
         while (input >= 1000) {
             s += "M";
