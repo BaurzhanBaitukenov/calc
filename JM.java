@@ -18,6 +18,7 @@ public class JM {
         String[] rome = {"X", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
 
 
+
         if (value.contains("-")) {
             int con1 = 0;
             int con2 = 0;
@@ -40,6 +41,7 @@ public class JM {
             }
             String minusT = value.replaceAll("[\\s|\\u00A0]+", "");
             String[] minus = minusT.split("-");
+
 
                 for (int j = 0; j < arab.length; j++) {
                     for (int k = 0; k < rome.length; k++) {
@@ -67,6 +69,15 @@ public class JM {
                     resCon = IntegerToRomanNumeral(con);
                     return resCon;
                 }
+
+                try {
+                    if(Integer.parseInt(minus[0]) > 10 || Integer.parseInt(minus[1]) > 10){
+                        throw new Exception();
+                    }
+                } catch (Exception e){
+                    return String.valueOf(e);
+                }
+
                 int minusRes = Integer.parseInt(minus[0]) - Integer.parseInt(minus[1]);
                 return String.valueOf(minusRes);
             }
@@ -114,6 +125,14 @@ public class JM {
                     resCon = IntegerToRomanNumeral(con);
                     return resCon;
                 }
+
+            try {
+                if(Integer.parseInt(plus[0]) > 10 || Integer.parseInt(plus[1]) > 10){
+                    throw new Exception();
+                }
+            } catch (Exception e){
+                return String.valueOf(e);
+            }
 
                 int plusRes = Integer.parseInt(plus[0]) + Integer.parseInt(plus[1]);
                 return String.valueOf(plusRes);
@@ -164,6 +183,14 @@ public class JM {
                     return resCon;
                 }
 
+            try {
+                if(Integer.parseInt(plus[0]) > 10 || Integer.parseInt(plus[1]) > 10){
+                    throw new Exception();
+                }
+            } catch (Exception e){
+                return String.valueOf(e);
+            }
+
                 int plusRes = Integer.parseInt(plus[0]) / Integer.parseInt(plus[1]);
                 return String.valueOf(plusRes);
             }
@@ -213,6 +240,14 @@ public class JM {
                     return resCon;
                 }
 
+            try {
+                if(Integer.parseInt(mult[0]) > 10 || Integer.parseInt(mult[1]) > 10){
+                    throw new Exception();
+                }
+            } catch (Exception e){
+                return String.valueOf(e);
+            }
+
                 int multRes = Integer.parseInt(mult[0]) * Integer.parseInt(mult[1]);
                 return String.valueOf(multRes);
             }
@@ -241,27 +276,6 @@ public class JM {
                 return 9;
             } else if (roman.equals("X")) {
                 return 10;
-            }
-            else if (roman.equals("XI")) {
-                return 11;
-            } else if (roman.equals("XII")) {
-                return 12;
-            } else if (roman.equals("XIII")) {
-                return 13;
-            } else if (roman.equals("XIV")) {
-                return 14;
-            } else if (roman.equals("XV")) {
-                return 15;
-            } else if (roman.equals("XVI")) {
-                return 16;
-            } else if (roman.equals("XVII")) {
-                return 17;
-            } else if (roman.equals("XVIII")) {
-                return 28;
-            } else if (roman.equals("XIX")) {
-                return 19;
-            } else if (roman.equals("XX")) {
-                return 20;
             }
         return -1;
     }
@@ -323,5 +337,4 @@ public class JM {
         }
         return s;
     }
-
 }
